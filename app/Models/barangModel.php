@@ -1,9 +1,9 @@
 <?php 
 
-namespace App\Model;
+namespace App\Models;
 use CodeIgniter\Model;
 
-class barangModel extends Model{
+class BarangModel extends Model{
     protected $table        = 'barang';
     protected $primaryKey   = 'id';
 
