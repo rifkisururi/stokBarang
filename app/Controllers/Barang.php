@@ -9,8 +9,7 @@ class Barang extends BaseController
     public function index()
     {
         $barang = new BarangModel();
-        $dataBarang = $barang->findAll();
-        print_r($dataBarang);
-        //return view('home');
+        $data["dtBarang"] =$barang->findAll();
+        return view('barang', $data);
     }
 }

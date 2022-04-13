@@ -8,9 +8,8 @@ class Pengguna extends BaseController
 {
     public function index()
     {
-        $pengguna = new penggunaModel();
-        $dataPengguna = $pengguna->findAll();
-        print_r($dataPengguna);
-        //return view('home');
+        $pengguna = new penggunaModel();        
+        $data["dtPengguna"] =$pengguna->findAll();
+        return view('pengguna', $data);
     }
 }

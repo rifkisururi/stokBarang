@@ -4,7 +4,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class penggunaModel extends Model{
-    protected $table        = 'barang';
+    protected $table        = 'pengguna';
     protected $primaryKey   = 'id';
 
     protected $useAutoIncrement = 'true';
