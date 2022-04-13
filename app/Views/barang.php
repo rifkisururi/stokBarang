@@ -9,7 +9,7 @@
         </div>
 
         <div class="section-body">
-            <table class="table">
+            <table class="table dataTable">
                 <thead>
                     <tr>
                         <th>Kode Barang</th>
