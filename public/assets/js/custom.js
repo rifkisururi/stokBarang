@@ -8,4 +8,6 @@
 "use strict";
 $(document).ready(function() {
     $('.dataTable').DataTable();
+    $(".dataTables_length label").before("<button class='btn btn-primary' id='btnAdd'>Tambah Data </button>  ");
+
 } );

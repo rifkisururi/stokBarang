@@ -17,6 +17,7 @@
                         <th>Jumlah</th>
                         <th>Harga</th>
                         <th>Jenis Transaksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,10 @@
                             <td class="jumlah"><?= $m['jumlah'] ?></td>
                             <td class="harga"><?= $m['harga'] ?></td>
                             <td class="jenisTransaksi"><?= $m['jenisTransaksi'] ?></td>
+                            <td class="aksi"> 
+                                <button class="btn btn-warning">Ubah</button>
+                                <button class="btn btn-danger">Hapus</button>
+                            </td>
                         </tr>
                     <?php } ?>
                     

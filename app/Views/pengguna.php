@@ -15,6 +15,7 @@
                         <th>Nama</th>
                         <th>Email</th>
                         <th>Role</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,10 @@
                             <td class="nama"><?= $p['nama'] ?></td>
                             <td class="email"><?= $p['email'] ?></td>
                             <td class="role"><?= $p['role'] ?></td>
+                            <td class="aksi"> 
+                                <button class="btn btn-warning">Ubah</button>
+                                <button class="btn btn-danger">Hapus</button>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

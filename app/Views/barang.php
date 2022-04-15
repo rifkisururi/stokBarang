@@ -15,6 +15,7 @@
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
                         <th>Stok</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,10 @@
                             <td class="kode"><?= $b['kode'] ?></td>
                             <td class="nama"><?= $b['nama'] ?></td>
                             <td class="stok"></td>
+                            <td class="aksi"> 
+                                <button class="btn btn-warning">Ubah</button>
+                                <button class="btn btn-danger">Hapus</button>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -33,4 +38,8 @@
     </section>
 </div>
 
-<?= $this->endSection();
+<?= $this->endSection(); ?>
+
+
+
+<script src="../assets/js/barang.js"></script>
