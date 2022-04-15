@@ -38,4 +38,5 @@
     </section>
 </div>
 
+<script src="../assets/js/pengguna.js"></script>
 <?= $this->endSection();

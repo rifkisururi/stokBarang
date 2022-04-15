@@ -38,8 +38,5 @@
     </section>
 </div>
 
-<?= $this->endSection(); ?>
-
-
-
 <script src="../assets/js/barang.js"></script>
+<?= $this->endSection(); ?>

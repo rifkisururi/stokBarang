@@ -42,4 +42,5 @@
     </section>
 </div>
 
+<script src="../assets/js/mutasi.js"></script>
 <?= $this->endSection();
