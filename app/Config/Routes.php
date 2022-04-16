@@ -33,6 +33,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->post('barang/add', 'Barang::add');
+$routes->post('pengguna/add', 'pengguna::add');
+$routes->post('mutasi/add', 'MutasiBarang::add');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

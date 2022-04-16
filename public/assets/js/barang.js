@@ -20,14 +20,6 @@ $(document).on("click", ".btnCancel" , function(){
     $(classRow).remove();
 });
 
-
-$(document).on("click", ".btcSave" , function(){
-    var classRow = $(this).attr("id").replace("btnSave_",".tr_");
-
-    var data = getData(classRow);
-    console.log(data); 
-});
-
 function getData(selector){
     dataPost = new Object();
     dataPost.id = selector;
@@ -36,3 +28,37 @@ function getData(selector){
 
     return dataPost;
 }
+
+$(document).on("click", ".btcSave" , function(){
+    var classRow = $(this).attr("id").replace("btnSave_",".tr_");
+
+    var dataPost = getData(classRow);
+    console.log(dataPost);
+
+    $.ajax({
+        url:"barang/add",
+        type:"POST",
+
+        data:dataPost ,
+        success:function(response) {
+          console.log('data berhasil di simpan', response);
+          $("tbody").prepend(`
+            <tr class='tr_${response.id}'>
+                <td class='kode'>${dataPost.kode}</td>
+                <td class='nama'>${dataPost.nama}</td>
+                <td class='stok'>0</td>
+                <td>
+                    <button class="btn btn-warning">Ubah</button>
+                    <button class="btn btn-danger">Hapus</button>
+                </td>
+            </tr>
+          `);
+
+          $(dataPost.id).remove();
+       },
+       error:function(){
+        alert("error");
+       }
+
+    });
+});

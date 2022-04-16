@@ -21,7 +21,7 @@
                 <tbody>
                     
                     <?php if(count($dtPengguna) > 0 ){
-                        foreach($dtPengguna as $p) ?>
+                        foreach($dtPengguna as $p): ?>
                         <tr class="tr_<?= $p['id'] ?>">
                             <td class="nama"><?= $p['nama'] ?></td>
                             <td class="email"><?= $p['email'] ?></td>
@@ -31,6 +31,7 @@
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
                         </tr>
+                        <?php endforeach ?>
                     <?php } ?>
                 </tbody>
             </table>

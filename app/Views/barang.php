@@ -21,7 +21,7 @@
                 <tbody>
                     
                     <?php if(count($dtBarang) > 0 ){
-                        foreach($dtBarang as $b) ?>
+                        foreach($dtBarang as $b) : ?>
                         <tr class="tr_<?= $b['id'] ?>">
                             <td class="kode"><?= $b['kode'] ?></td>
                             <td class="nama"><?= $b['nama'] ?></td>
@@ -31,6 +31,7 @@
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
                         </tr>
+                        <?php endforeach ?>
                     <?php } ?>
                 </tbody>
             </table>

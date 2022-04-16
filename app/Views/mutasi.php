@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                     <?php if(count($dtMutasi) > 0 ){
-                    foreach($dtMutasi as $m); ?>
+                    foreach($dtMutasi as $m) : ?>
                         <tr class="tr_<?= $m['id'] ?>">
                             <td class="id_barang"><?= $m['id_barang'] ?></td>
                             <td class="tanggal"><?= $m['tanggal'] ?></td>
@@ -34,8 +34,8 @@
                                 <button class="btn btn-danger">Hapus</button>
                             </td>
                         </tr>
+                        <?php endforeach ?>
                     <?php } ?>
-                    
                 </tbody>
             </table>
         </div>
