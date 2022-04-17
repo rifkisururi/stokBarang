@@ -24,6 +24,13 @@ $(document).on("click", ".btnCancel" , function(){
     $(classRow).remove();
 });
 
+$(document).on("click", ".btnCancelEdit" , function(){
+    var classRow = $(this).attr("id").replace("btnCancel_","tr_");
+    var classLama = $("."+classRow).attr("class").replace(classRow,"").trim();
+    $("."+classLama).show();
+    $("."+classRow).remove();
+});
+
 function getData(selector){
     dataPost = new Object();
     dataPost.id = selector;
@@ -60,6 +67,84 @@ $(document).on("click", ".btcSave" , function(){
           `);
 
           $(dataPost.id).remove();
+       },
+       error:function(){
+        alert("error");
+       }
+
+    });
+});
+
+
+// Fungsi edit
+$(document).on("click", ".btnEdit" , function(){
+    console.log('form edit dibuat');
+    console.log($(this).attr("id"));
+    var idLama = $(this).attr("id").replace("btnEdit_","tr_");
+
+    $("."+idLama).hide();
+
+    var email = $("."+ idLama +" .email").html().trim();
+    var role = $("."+ idLama +" .role").html().trim();
+    var nama = $("."+ idLama +" .nama").html().trim();
+
+    var dtRole = "";
+    if(role == 'admin'){
+        dtRole = `
+            <option value="admin" selected>Admin</option>
+            <option value="owner">Owner</option>
+        `;
+    }else{
+        dtRole = `
+        <option value="admin">Admin</option>
+        <option value="owner" selected>Owner</option>
+    `;
+    }
+
+    var drRole = `<select  class='form-control role'>${dtRole}</select>`;
+    var id = makeid(10);
+    $(`tbody .${idLama}`).after(`
+        <tr class="tr_${id} ${idLama}">
+            <td><input type='text' class='form-control nama' value='${nama}'></td>
+            <td><input type='text' class='form-control email' value='${email}'></td>
+            <td>${drRole}</td>
+            <td>
+                <button class='btn btn-primary btnSaveEdit' id='btnSave_${id}'>Simpan</button>
+                <button class='btn btn-danger btnCancelEdit' id='btnCancel_${id}'>Batal</button>
+            </td>
+        </tr>
+    `);
+});
+
+
+$(document).on("click", ".btnSaveEdit" , function(){
+    var classRow = $(this).attr("id").replace("btnSave_","tr_");
+    var idLama = $("."+classRow).attr("class").replace(classRow,"").trim().replace("tr_","");
+    var dataPost = getData("."+classRow);
+    dataPost.id = idLama;
+    console.log(dataPost);
+
+    $.ajax({
+        url:"pengguna/update",
+        type:"POST",
+
+        data:dataPost ,
+        success:function(response) {
+          console.log('data berhasil di simpan', response);
+          $(".tr_"+idLama +".odd").remove();
+          $(`tbody .${classRow}`).after(`
+            <tr class='tr_${response.id}'>
+                <td class='nama'>${dataPost.nama}</td>
+                <td class='email'>${dataPost.email}</td>
+                <td class='role'>${dataPost.role}</td>
+                <td>
+                    <button class="btn btn-warning btnEdit" id="btnEdit_${response.id}">Ubah</button>
+                    <button class="btn btn-danger btnHapus" id="btnHapus_${response.id}">Hapus</button>
+                </td>
+            </tr>
+          `);
+
+          $("."+classRow).remove();
        },
        error:function(){
         alert("error");

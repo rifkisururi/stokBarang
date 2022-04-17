@@ -44,5 +44,32 @@ class Barang extends BaseController
         return $this->respond($output, 200);
     }
 
-    
+    public function update(){
+        $barang = new BarangModel();
+        
+        // variable yang mau di update
+        $kode = $this->request->getPost('kode');
+        $nama = $this->request->getPost('nama');
+        $id = $this->request->getPost('id');
+
+        $dataPost = [
+            'kode' => $kode,
+            'nama' => $nama
+        ];
+
+        $update = $barang->update( $id , $dataPost);
+        if($update == true){
+            $output = [
+                'id' => $id,
+                'pesan' => 'Data berhasi diperbarui'
+            ];
+        }else{
+            $output = [
+                'id' => 0,
+                'pesan' => 'Data gagal diperbarui'
+            ];
+        }
+        return $this->respond($output, 200);
+    }
+
 }

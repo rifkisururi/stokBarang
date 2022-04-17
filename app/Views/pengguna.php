@@ -27,8 +27,8 @@
                             <td class="email"><?= $p['email'] ?></td>
                             <td class="role"><?= $p['role'] ?></td>
                             <td class="aksi"> 
-                                <button class="btn btn-warning">Ubah</button>
-                                <button class="btn btn-danger">Hapus</button>
+                                <button class="btn btn-warning btnEdit" id="btnEdit_<?= $p['id'] ?>">Ubah</button>
+                                <button class="btn btn-danger btnHapus" id="btnHapus_<?= $p['id'] ?>">Hapus</button>
                             </td>
                         </tr>
                         <?php endforeach ?>

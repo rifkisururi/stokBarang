@@ -27,8 +27,8 @@
                             <td class="nama"><?= $b['nama'] ?></td>
                             <td class="stok"></td>
                             <td class="aksi"> 
-                                <button class="btn btn-warning">Ubah</button>
-                                <button class="btn btn-danger">Hapus</button>
+                                <button class="btn btn-warning btnEdit" id="btnEdit_<?= $b['id'] ?>">Ubah</button>
+                                <button class="btn btn-danger btnHapus" id="btnHapus_<?= $b['id'] ?>">Hapus</button>
                             </td>
                         </tr>
                         <?php endforeach ?>

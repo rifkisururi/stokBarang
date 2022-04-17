@@ -34,8 +34,13 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->post('barang/add', 'Barang::add');
+$routes->post('barang/update', 'Barang::update');
+
 $routes->post('pengguna/add', 'pengguna::add');
+$routes->post('pengguna/update', 'pengguna::update');
+
 $routes->post('mutasi/add', 'MutasiBarang::add');
+$routes->post('mutasi/update', 'MutasiBarang::update');
 
 /*
  * --------------------------------------------------------------------
