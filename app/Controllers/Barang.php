@@ -72,4 +72,13 @@ class Barang extends BaseController
         return $this->respond($output, 200);
     }
 
+    public function hapus($id){
+        $barang = new BarangModel();
+        $barang->delete($id);
+        $output = [
+            'id' => $id,
+            'pesan' => 'Data berhasil di hapus'
+        ];
+        return $this->respond($output, 200);
+    }
 }

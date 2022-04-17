@@ -7,7 +7,7 @@ $(document).on("click", "#btnAdd" , function(){
             <td><input type='text' class='form-control nama'></td>
             <td></td>
             <td>
-                <button class='btn btn-primary btcSave' id='btnSave_${id}'>Simpan</button>
+                <button class='btn btn-primary btnSave' id='btnSave_${id}'>Simpan</button>
                 <button class='btn btn-danger btnCancel' id='btnCancel_${id}'>Batal</button>
                 
             </td>
@@ -124,6 +124,24 @@ $(document).on("click", ".btnSaveEdit" , function(){
           `);
 
           $("."+classRow).remove();
+       },
+       error:function(){
+        alert("error");
+       }
+
+    });
+});
+
+// hapus data
+$(document).on("click", ".btnHapus" , function(){
+    var id = $(this).attr("id").replace("btnHapus_","");
+
+    $.ajax({
+        url:"barang/hapus/" + id,
+        type:"GET",
+        success:function(response) {
+          console.log(response);
+          $(".tr_"+response.id).remove();
        },
        error:function(){
         alert("error");

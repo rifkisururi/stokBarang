@@ -75,4 +75,14 @@ class Pengguna extends BaseController
         }
         return $this->respond($output, 200);
     }
+
+    public function hapus($id){
+        $pengguna = new penggunaModel();
+        $pengguna->delete($id);
+        $output = [
+            'id' => $id,
+            'pesan' => 'Data berhasil di hapus'
+        ];
+        return $this->respond($output, 200);
+    }
 }

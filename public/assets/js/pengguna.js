@@ -152,3 +152,22 @@ $(document).on("click", ".btnSaveEdit" , function(){
 
     });
 });
+
+
+// hapus data
+$(document).on("click", ".btnHapus" , function(){
+    var id = $(this).attr("id").replace("btnHapus_","");
+
+    $.ajax({
+        url:"pengguna/hapus/" + id,
+        type:"GET",
+        success:function(response) {
+          console.log(response);
+          $(".tr_"+response.id).remove();
+       },
+       error:function(){
+        alert("error");
+       }
+
+    });
+});
